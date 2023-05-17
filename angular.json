@@ -117,6 +117,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-to-do-list"
+    }
+  }
 }
