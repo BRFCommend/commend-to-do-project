@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    title = 'Angular Todo List';
+    title = 'Commend ToDo Project';
     desc;
     data : any = [];
 

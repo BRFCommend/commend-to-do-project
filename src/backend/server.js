@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const _ = require("lodash");
-const {toDoMocks} = require("./to-do-mocks.ts");
+const { toDoMocks } = require("./to-do-mocks.ts");
 
 let todos = toDoMocks;
 
