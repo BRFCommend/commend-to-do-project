@@ -63,6 +63,6 @@ app.put("/api/users/:id", (request, response) => {
 app.delete("/api/users/:id", (request, response) => {
     const index = findIndex(+request.params.id);
     const found = index >= 0;
-    if(found) todos = todos.splice(index, 1);
+    if(found) todos.splice(index, 1);
     handleResponse(found ? todos : false, response);
 });
