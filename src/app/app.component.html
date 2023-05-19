@@ -1,22 +1,16 @@
-<div class="ui container">
-    <h1 style="padding-top: 2rem; text-align: center;">{{ title }}</h1>
-    <div class="ui form">
-        <div class="ui field">
-            <input type="text" autofocus [(ngModel)]="desc" name="desc" (keyup.enter)="saveTask()" autocomplete="off" placeholder="Ketik disini, Enter untuk menyimpan tugas.">
-        </div>
-        <div *ngFor="let data of data.item" class="ui centered card" style="width: 100%;">
-            <div class="content" *ngIf="data.status == 0">
-                <span class="ui left floated">{{data.description}}</span>
-                <span class="ui right floated">
-                    <button class="ui inverted blue button" (click)="doneTask(data.id)">Done</button>
-                </span>
-            </div>
-            <div class="content" *ngIf="data.status == 1" style="background-color: rgba(134, 134, 134, 0.1);">
-                <span class="ui left floated">{{data.description}}</span>
-                <span class="ui right floated">
-                    <button class="ui disabled button">Done</button>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
+<h1>Welcome to Commend!</h1>
+
+What we want to do:
+
+<ol>
+    <li>Print out a title from App-Component on this page</li>
+    <li>Style title by using Commend Color (<code>rgb(0, 110, 210)</code>)</li>
+    <li>Add a ToDo in App-Component and print it on this page too</li>
+    <li>Style ToDo by using Bootstrap's Grid System (<code>https://getbootstrap.com/docs/3.4/css/#grid-example-basic</code>)</li>
+    <li>Request ToDo's from Backend and print them</li>
+    <li>Add a edit-button to each ToDo-row, such that each ToDo is editable</li>
+    <li>Add a save-button to each ToDo-row, such that each ToDo can be saved</li>
+    <li>Add a delete-button to each ToDo-row, such that each ToDo can be removed</li>
+    <li>Style your work, use your imagination!</li>
+</ol>
+
