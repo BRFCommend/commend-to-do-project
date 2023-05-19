@@ -1,5 +1,5 @@
 export class ToDo {
-    id: number;
+    id?: number;
     status: 'open' | 'done';
     description: string;
 }
