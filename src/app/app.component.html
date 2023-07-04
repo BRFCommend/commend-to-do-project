@@ -26,12 +26,21 @@
     <tr>
         <th>Status</th>
         <th>Description</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let todo of todos$ | async">
-        <td>{{ todo.status }}</td>
-        <td>{{ todo.description }}</td>
+        <td>
+            <select [(ngModel)]="todo.status">
+                <option value="open">Open</option>
+                <option value="done">Done</option>
+            </select>
+        </td>
+        <td><input type="text" [(ngModel)]="todo.description"/></td>
+        <td>
+            <button type="button" class="btn btn-info" (click)="updateTodo(todo)">Update</button>
+        </td>
     </tr>
     </tbody>
 </table>

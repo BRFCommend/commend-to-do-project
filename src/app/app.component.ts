@@ -23,4 +23,8 @@ export class AppComponent implements OnInit {
     createTodo = () => this.api.create({ status: 'done', description: 'Bettwäsche wechseln'}).subscribe(
         () => location.reload()
     )
+
+    updateTodo = (toDo: ToDo) => this.api.update(toDo).subscribe(
+        () => location.reload()
+    )
 }
