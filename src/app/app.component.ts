@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ToDo} from '../models/to-do';
 import {ToDoService} from '../services/to-do.service';
-import {tap} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -10,22 +10,13 @@ import {tap} from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
     title: string;
-    todos: ToDo[];
+    todos$: Observable<ToDo[]>;
 
     constructor(private api: ToDoService) {
     }
 
     ngOnInit(): void {
         this.title = 'Commend ToDo Project';
-        this.todos = [
-            {
-                id: 1,
-                description: 'I am a todo entry',
-                status: 'open'
-            }
-        ];
-        this.api.read().pipe(
-            tap(console.log)
-        ).subscribe();
+        this.todos$ = this.api.read();
     }
 }
