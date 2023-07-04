@@ -1,5 +1,4 @@
-# Commend ToDo Project
-
+# Commend ToDo Workshop Project
 
 ## Setup
 ```bash
