@@ -17,3 +17,14 @@
 <hr/>
 
 <h1 class="highlight-text">{{title}}</h1>
+
+<table>
+    <tr>
+        <th>Status</th>
+        <th>Description</th>
+    </tr>
+    <tr *ngFor="let todo of todos">
+        <td>{{ todo.status }}</td>
+        <td>{{ todo.description }}</td>
+    </tr>
+</table>
