@@ -19,4 +19,8 @@ export class AppComponent implements OnInit {
         this.title = 'Commend ToDo Project';
         this.todos$ = this.api.read();
     }
+
+    createTodo = () => this.api.create({ status: 'done', description: 'Bettwäsche wechseln'}).subscribe(
+        () => location.reload()
+    )
 }
