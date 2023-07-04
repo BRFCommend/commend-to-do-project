@@ -20,11 +20,15 @@ export class AppComponent implements OnInit {
         this.todos$ = this.api.read();
     }
 
-    createTodo = () => this.api.create({ status: 'done', description: 'Bettwäsche wechseln'}).subscribe(
+    createTodo = () => this.api.create({status: 'done', description: 'Bettwäsche wechseln'}).subscribe(
         () => location.reload()
     )
 
     updateTodo = (toDo: ToDo) => this.api.update(toDo).subscribe(
+        () => location.reload()
+    )
+
+    deleteTodo = (id: number) => this.api.delete(id).subscribe(
         () => location.reload()
     )
 }

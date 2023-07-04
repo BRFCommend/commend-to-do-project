@@ -27,6 +27,7 @@
         <th>Status</th>
         <th>Description</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -40,6 +41,9 @@
         <td><input type="text" [(ngModel)]="todo.description"/></td>
         <td>
             <button type="button" class="btn btn-info" (click)="updateTodo(todo)">Update</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button>
         </td>
     </tr>
     </tbody>
