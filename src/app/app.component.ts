@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ToDo} from '../models/to-do';
+import {ToDoService} from '../services/to-do.service';
+import {tap} from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -10,6 +12,9 @@ export class AppComponent implements OnInit {
     title: string;
     todos: ToDo[];
 
+    constructor(private api: ToDoService) {
+    }
+
     ngOnInit(): void {
         this.title = 'Commend ToDo Project';
         this.todos = [
@@ -19,5 +24,8 @@ export class AppComponent implements OnInit {
                 status: 'open'
             }
         ];
+        this.api.read().pipe(
+            tap(console.log)
+        ).subscribe();
     }
 }
