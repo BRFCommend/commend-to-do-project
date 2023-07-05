@@ -11,6 +11,7 @@ import {Observable} from 'rxjs';
 export class AppComponent implements OnInit {
     title: string;
     todos$: Observable<ToDo[]>;
+    newTodo: ToDo;
 
     constructor(private api: ToDoService) {
     }
@@ -18,13 +19,18 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = 'Commend ToDo Project';
         this.todos$ = this.api.read();
+        this.newTodo = {description: '', status: 'open'};
     }
 
-    createTodo = () => this.api.create({ status: 'done', description: 'Bettwäsche wechseln'}).subscribe(
+    createTodo = (newTodo: ToDo) => this.api.create(newTodo).subscribe(
         () => location.reload()
     )
 
     updateTodo = (toDo: ToDo) => this.api.update(toDo).subscribe(
+        () => location.reload()
+    )
+
+    deleteTodo = (id: number) => this.api.delete(id).subscribe(
         () => location.reload()
     )
 }

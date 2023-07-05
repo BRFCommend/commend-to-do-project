@@ -19,17 +19,28 @@
 
 <h1 class="highlight-text">{{title}}</h1>
 
-<button type="button" class="btn btn-primary" (click)="createTodo()">Create Todo</button>
-
-<table class="table">
+<table>
     <thead>
     <tr>
         <th>Status</th>
         <th>Description</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
+    <tr>
+        <td>
+            <select [(ngModel)]="newTodo.status">
+                <option value="open">Open</option>
+                <option value="done">Done</option>
+            </select>
+        </td>
+        <td><input type="text" [(ngModel)]="newTodo.description"/></td>
+        <td>
+            <button type="button" class="btn btn-success" (click)="createTodo(newTodo)">Create</button>
+        </td>
+    </tr>
     <tr *ngFor="let todo of todos$ | async">
         <td>
             <select [(ngModel)]="todo.status">
@@ -40,6 +51,9 @@
         <td><input type="text" [(ngModel)]="todo.description"/></td>
         <td>
             <button type="button" class="btn btn-info" (click)="updateTodo(todo)">Update</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button>
         </td>
     </tr>
     </tbody>
