@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomSelectComponent } from './custom-select/custom-select.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomSelectComponent
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,11 @@
 </ol>
 <hr/>
 
+<h1 [outerHTML]="safeScript"></h1>
+
 <h1 class="highlight-text">{{title}}</h1>
 
-<table>
+<table class="table">
     <thead>
     <tr>
         <th>Status</th>
@@ -31,22 +33,16 @@
     <tbody>
     <tr>
         <td>
-            <select [(ngModel)]="newTodo.status">
-                <option value="open">Open</option>
-                <option value="done">Done</option>
-            </select>
+            <app-custom-select [options]="possibleStatusOptions" [todo]="newTodo"></app-custom-select>
         </td>
         <td><input type="text" [(ngModel)]="newTodo.description"/></td>
         <td>
-            <button type="button" class="btn btn-success" (click)="createTodo(newTodo)">Create</button>
+            <button type="button" class="btn btn-success" [disabled]="!newTodo.description" (click)="createTodo(newTodo)">Create</button>
         </td>
     </tr>
     <tr *ngFor="let todo of todos$ | async">
         <td>
-            <select [(ngModel)]="todo.status">
-                <option value="open">Open</option>
-                <option value="done">Done</option>
-            </select>
+           <app-custom-select [options]="possibleStatusOptions" [todo]="todo"></app-custom-select>
         </td>
         <td><input type="text" [(ngModel)]="todo.description"/></td>
         <td>

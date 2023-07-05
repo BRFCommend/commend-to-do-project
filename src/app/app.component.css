@@ -5,3 +5,7 @@
 .table {
     width: auto;
 }
+
+.table td {
+    padding: 5px;
+}

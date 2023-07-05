@@ -1,0 +1,4 @@
+<select [(ngModel)]="todo.status">
+    <option *ngFor="let option of options" value="{{option}}">{{option}}</option>
+    <option value="done">Done</option>
+</select>
